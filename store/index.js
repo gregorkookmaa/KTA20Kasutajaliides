@@ -13,7 +13,7 @@ export const state = () => ({
         {name: 'New Deaths Desc', field: 'NewDeaths', order: 'desc'},
     ],
     sort: {name: 'Total Confirmed Desc', field: 'TotalConfirmed', order: 'desc'},
-})
+});
   
 export const mutations = {
     SET_COUNTRIES(state, countries) {
@@ -28,7 +28,7 @@ export const mutations = {
     SET_COUNTRY(state, country){
         state.country = country;
     }
-}
+};
 
 export const actions = {
     getSummary(context) {
@@ -46,7 +46,7 @@ export const actions = {
             context.commit('SET_COUNTRY', response.data);
         });
     }
-}
+};
 
 export const getters = {
     countryNames(state){
@@ -54,7 +54,7 @@ export const getters = {
     },
     filteredCountries(state){
         return state.countries.filter(country => {
-            return state.search.toLowerCase() === country.Country.substr(0, state.search.length).toLowerCase()
+            return state.search.toLowerCase() === country.Country.substr(0, state.search.length).toLowerCase();
         });
     },
     sortedCountries(state, getters){
@@ -77,4 +77,4 @@ export const getters = {
     deaths(state){
         return state.country.map(data => data.Deaths);
     },
-}
+};
